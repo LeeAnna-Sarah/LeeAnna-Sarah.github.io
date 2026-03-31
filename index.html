@@ -188,34 +188,47 @@
     #portfolio {}
     .portfolio-intro { max-width: 52ch; margin-bottom: 4rem; }
     .portfolio-intro p { color: var(--muted); margin-top: 1.2rem; }
-    .audio-grid { display: grid; gap: 2rem; }
+    .audio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
     .audio-card {
       background: var(--panel); border: 1px solid var(--border);
-      border-radius: 4px; padding: 2rem 2.5rem;
+      border-radius: 4px; padding: 1.8rem;
       display: flex; flex-direction: column; gap: 1rem;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
     }
-    .audio-card-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; }
-    .audio-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
+    .audio-card-header { display: flex; flex-direction: column; gap: 0.5rem; }
+    .audio-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; }
     .audio-badge {
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
       border: 1px solid var(--gold); color: var(--gold);
-      padding: 0.3rem 0.7rem; border-radius: 2px;
+      padding: 0.25rem 0.6rem; border-radius: 2px;
+      align-self: flex-start;
     }
-    .audio-card p { color: var(--muted); font-size: 0.9rem; }
+    .audio-card > p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
     .audio-embed-placeholder {
       background: var(--deep); border: 1px dashed var(--border);
       border-radius: 3px; padding: 2.5rem;
       text-align: center; color: var(--muted); font-size: 0.82rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.05em; flex: 1;
     }
     .audio-embed-placeholder span { display: block; font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .audio-embed-placeholder iframe { border-radius: 3px; }
     .soundcloud-note {
-      margin-top: 2.5rem; padding: 1.5rem 2rem;
+      margin-top: 2rem; padding: 1.5rem 2rem;
       border-left: 2px solid var(--gold);
       background: rgba(201,169,110,0.05);
       font-size: 0.85rem; color: var(--muted);
     }
     .soundcloud-note a { color: var(--gold); text-decoration: none; }
+    @media (max-width: 900px) {
+      .audio-grid { grid-template-columns: 1fr; }
+      .audio-card { aspect-ratio: unset; }
+    }
 
     /* ── GALLERY ── */
     #gallery { background: var(--deep); }
@@ -674,9 +687,7 @@
       </div>
     </div>
 
-    <div class="gallery-note reveal">
-      <strong>Adding your photos:</strong> Replace each placeholder <code>&lt;div class="photo-placeholder"&gt;</code> with an <code>&lt;img src="your-photo.jpg" alt="description"&gt;</code> tag inside the <code>.photo-slot</code>. Photos display best at 1200×800px (landscape) or 800×1200px (portrait).
-    </div>
+
   </section>
 
   <!-- LIGHTBOX -->
@@ -691,9 +702,7 @@
   <section id="about">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <div class="about-image-box">
-  <img src="About Image.JPEG" alt="LeeAnna" style="width:100%; height:100%; object-fit:cover;">
-</div>
+        <div class="about-image-box">🎧</div>
         <div class="about-accent"></div>
       </div>
       <div class="about-text reveal">
@@ -730,37 +739,27 @@
     <div class="testimonials-grid reveal">
       <div class="testimonial-card">
         <div class="quote-mark">"</div>
-        <p>Working with LeeAnna completely transformed my EP. She understood exactly what I was going for — warm, intimate, and real. The final master sounds incredible on every system I've played it on.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🎶</div>
-          <div>
-            <div class="author-name">Marcus T.</div>
-            <div class="author-role">Singer-Songwriter</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p>I've worked with a lot of podcast editors and LeeAnna is easily the best. She's fast, communicates clearly, and the audio quality of my show went up dramatically. My listeners noticed immediately.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🎙️</div>
-          <div>
-            <div class="author-name">Priya R.</div>
-            <div class="author-role">Podcast Host, The Deep Dive</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p>As a complete beginner, I was nervous to start guitar lessons. LeeAnna made it approachable and actually fun. Six months in and I'm playing songs I love. I wish I started sooner.</p>
+        <p>We're the parents of two kids (ages 12 and 9) who have been taking guitar lessons with LeeAnna, and we've been really happy with how things are going. She's very knowledgeable and has done a great job teaching them the basics in a way that actually keeps them interested. We've already noticed steady progress from both of them, which has been nice to see. She's easy to work with, communicates well, and is always on time for lessons. Our kids are comfortable with her, and she's been patient and encouraging without making things feel rushed. Overall, she's doing a fantastic job, and we would definitely recommend her to anyone looking for a guitar instructor!</p>
         <div class="testimonial-author">
           <div class="author-avatar">🎸</div>
           <div>
-            <div class="author-name">Jordan K.</div>
-            <div class="author-role">Guitar Student</div>
+            <div class="author-name">Kate & Clint Costanza</div>
+            <div class="author-role">Guitar Lesson Parents</div>
           </div>
         </div>
       </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p>LeeAnna has been an absolute blessing to us and to the Ladies Clay Buzz podcast. From day one, she has poured her time, talent, and heart into helping us bring this vision to life. Her attention to detail, creativity, and commitment behind the scenes have made a bigger impact than most people will ever see — but we feel it every single day. She doesn't just "produce a podcast" — she elevates everything we do. Her support, consistency, and belief in our mission have been invaluable, and quite honestly, we couldn't do this without her. LeeAnna is the kind of person you hope to find once in a lifetime — and we are beyond grateful that she's part of our team.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">🎙️</div>
+          <div>
+            <div class="author-name">Stephanie Neuman, Sandra Jo Jack & Joy Hollis</div>
+            <div class="author-role">Hosts, Ladies Clay Buzz Podcast</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -772,9 +771,9 @@
         <h2>Let's make<br>something<br><em>great together.</em></h2>
         <p>Have a project in mind or just want to ask a question? I'd love to hear from you. Most inquiries get a response within 24 hours.</p>
         <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#05566c6b626960716a6b696060646b6b64456268646c692b666a68" class="contact-link">
+          <a href="/cdn-cgi/l/email-protection#a1f2c8cfc6cdc4d5cecfcdc4c4c0cfcfc0e1c6ccc0c8cd8fc2cecc" class="contact-link">
             <span class="contact-link-icon">✉️</span>
-            <span class="__cf_email__" data-cfemail="f3a09a9d949f96879c9d9f9696929d9d92b3949e929a9fdd909c9e">[email&#160;protected]</span>
+            <span class="__cf_email__" data-cfemail="91c2f8fff6fdf4e5fefffdf4f4f0fffff0d1f6fcf0f8fdbff2fefc">[email&#160;protected]</span>
           </a>
           <a href="tel:+16017174758" class="contact-link">
             <span class="contact-link-icon">📞</span>
@@ -848,7 +847,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Contact form — Web3Forms
     const form = document.getElementById('form');
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -899,10 +898,3 @@
       document.getElementById('lightboxImg').alt = img.alt;
       document.getElementById('lightbox').classList.add('open');
     }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-    // Scroll reveal
-    const reveals = document.querySelect
